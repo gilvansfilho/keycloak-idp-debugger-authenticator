@@ -12,12 +12,22 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<keycloak.version>18.0.3.redhat-00001</keycloak.version>
-		<jboss-logging.version>3.4.1.Final-redhat-00001</jboss-logging.version>
-    	<resteasy.version>3.15.3.Final-redhat-00001</resteasy.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<keycloak.version>24.0.4.redhat-00001</keycloak.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
+
+	<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-parent</artifactId>
+			<version>${keycloak.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		  </dependency>
+	</dependencies>
+</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -30,48 +40,41 @@
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-server-spi</artifactId>
-			<version>${keycloak.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-server-spi-private</artifactId>
-			<version>${keycloak.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-services</artifactId>
-			<version>${keycloak.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-saml-core-public</artifactId>
-			<version>${keycloak.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.logging</groupId>
 			<artifactId>jboss-logging</artifactId>
-			<version>${jboss-logging.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jackson2-provider</artifactId>
-			<version>${resteasy.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-client</artifactId>
-			<version>${resteasy.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
